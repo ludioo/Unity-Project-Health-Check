@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:VisualElement class="root">
+        <ui:VisualElement class="header">
+            <ui:Image name="header-icon" class="header-icon" />
+            <ui:VisualElement>
+                <ui:Label text="Project Health Check" class="title" />
+                <ui:Label text="A manual, read-only scan of assets in your project." class="subtitle" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:Foldout name="settings-foldout" text="Scan Settings" value="false" class="settings">
+            <ui:IntegerField name="texture-threshold" label="Texture threshold (px)" />
+            <ui:FloatField name="file-threshold" label="Large file threshold (MiB)" />
+            <ui:Button name="reset-settings" text="Reset defaults" class="link-button" />
+        </ui:Foldout>
+        <ui:Button name="scan-button" text="Scan Project" class="scan-button" />
+
+        <ui:VisualElement class="status-row">
+            <ui:Label text="0" name="total-label" class="total-count" />
+            <ui:Label name="status-label" class="status-label" />
+        </ui:VisualElement>
+
+        <ui:VisualElement name="summary" class="summary" />
+
+        <ui:VisualElement class="results-toolbar">
+            <ui:Label text="Results" class="section-title" />
+            <ui:DropdownField name="category-filter" label="Filter" />
+        </ui:VisualElement>
+        <ui:VisualElement name="empty-state" class="empty-state">
+            <ui:Label />
+        </ui:VisualElement>
+        <ui:ScrollView name="results" class="results" />
+    </ui:VisualElement>
+</ui:UXML>
