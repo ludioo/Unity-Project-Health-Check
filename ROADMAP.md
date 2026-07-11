@@ -9,32 +9,32 @@
 
 ## Scanner framework
 
-- [ ] Internal issue model and scanner
-- [ ] Manual Editor window with editable thresholds
-- [ ] Deterministic results and Select/Ping action
+- [x] Internal issue model and scanner
+- [x] Manual Editor window with editable thresholds
+- [x] Deterministic results and Select/Ping action
 
 ## Health checks
 
-- [ ] Invalid build scenes
-- [ ] Large files
-- [ ] Oversized textures
-- [ ] Empty folders
-- [ ] Missing scripts in prefabs and scenes
+- [x] Invalid build scenes
+- [x] Large files
+- [x] Oversized textures
+- [x] Empty folders
+- [x] Missing scripts in prefabs and scenes
 
 ## Testing
 
-- [ ] EditMode tests and temporary fixtures
-- [ ] Scene and Build Settings restoration tests
-- [ ] Local batchmode test command
+- [x] EditMode tests and temporary fixtures
+- [x] Scene and Build Settings restoration tests
+- [x] Local batchmode test command
 
 ## Documentation
 
-- [ ] User guide for installation and checks
-- [ ] Contributor guide for structure and tests
+- [x] User guide for installation and checks
+- [x] Contributor guide for structure and tests
 
 ## Release v0.1.0
 
-- [ ] Clean Unity compilation and EditMode test run
+- [x] Clean Unity compilation and EditMode test run
 - [ ] Install package from tagged Git URL in a clean project
 - [ ] Final changelog and `v0.1.0` tag
 

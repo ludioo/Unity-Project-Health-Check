@@ -8,6 +8,13 @@
 4. Keep development-only assets under `Assets/Development`.
 5. Run EditMode tests before opening a pull request.
 
+From PowerShell, EditMode tests can also run headlessly when `UNITY_EDITOR` points to Unity.exe:
+
+```powershell
+& $env:UNITY_EDITOR -batchmode -quit -projectPath $PWD -runTests -testPlatform EditMode -testResults TestResults.xml
+```
+
 Do not commit generated Unity directories such as `Library`, `Temp`, `Logs`, or `UserSettings`.
 
 Keep changes focused and dependency-free. New dependencies require prior discussion.
+Checks remain internal until a real external consumer requires a public extension API.

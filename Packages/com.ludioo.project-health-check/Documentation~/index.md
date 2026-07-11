@@ -1,5 +1,15 @@
 # Project Health Check
 
-Project Health Check will scan Unity projects for common health issues from the Unity Editor.
+Open **Tools > Project Health Check** and select **Scan Project**. The tool scans `Assets` only and
+does not modify project content.
 
-User and rule documentation will be added as features are implemented.
+## Checks
+
+- **Invalid build scenes:** Build Settings entries with an empty or missing scene path.
+- **Large files:** Assets at or above the file threshold (default 50 MiB).
+- **Oversized textures:** Source width or height above the texture threshold (default 4096 px).
+- **Empty folders:** Leaf folders containing no asset or subfolder.
+- **Missing scripts:** Missing MonoBehaviour components in prefabs and scenes.
+
+Threshold changes last for the current window only. Results support Select/Ping; automatic fixes,
+suppressions, background scans, and package scanning are not included in version 0.1.
