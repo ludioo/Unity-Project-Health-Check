@@ -1,7 +1,9 @@
 # Project Health Check
 
-Open **Tools > Project Health Check** and select **Scan Project**. The tool scans `Assets` only and
-does not modify project content.
+Open **Tools > Project Health Check** and select **Scan Project**. Expand **Scan Settings** to change
+thresholds or restore their defaults. The tool scans `Assets` only and does not modify project
+content. Summary cards and grouped results can be narrowed with the category filter without
+running another scan.
 
 ## Checks
 
