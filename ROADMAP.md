@@ -44,7 +44,7 @@
 - [x] Add responsive summary, grouping, and category filtering
 - [x] Add UI state and interaction tests
 - [x] Update the README screenshot and validate the release package
-- [ ] Tag and publish `v0.1.1`
+- [x] Tag and publish `v0.1.1`
 
 ## Post-v0.1 backlog
 
