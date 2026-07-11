@@ -35,8 +35,8 @@
 ## Release v0.1.0
 
 - [x] Clean Unity compilation and EditMode test run
-- [ ] Install package from tagged Git URL in a clean project
-- [ ] Final changelog and `v0.1.0` tag
+- [x] Install package from tagged Git URL in a clean project
+- [x] Final changelog and `v0.1.0` tag
 
 ## Post-v0.1 backlog
 
