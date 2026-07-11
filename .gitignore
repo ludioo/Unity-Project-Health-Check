@@ -1,5 +1,35 @@
-Library/
-Temp/
-Logs/
-UserSettings/
-obj/
+# Unity-generated directories
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+
+# IDE-generated files
+/.vs/
+/.idea/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity crash reports and temporary files
+sysinfo.txt
+crashlytics-build.properties
+*.tmp
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db

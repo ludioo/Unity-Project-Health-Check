@@ -1,0 +1,17 @@
+{
+  "name": "com.ludioo.project-health-check",
+  "version": "0.1.0",
+  "displayName": "Project Health Check",
+  "description": "A lightweight Editor tool for finding common Unity project health issues.",
+  "unity": "2022.3",
+  "license": "MIT",
+  "author": {
+    "name": "Ludioo",
+    "url": "https://github.com/ludioo"
+  },
+  "keywords": [
+    "editor",
+    "project",
+    "health-check"
+  ]
+}
