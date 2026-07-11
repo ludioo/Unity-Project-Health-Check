@@ -1,7 +1,7 @@
 # Project Health Check for Unity
 
-[![Unity 2022.3 LTS](https://img.shields.io/badge/Unity-2022.3%20LTS-222c37)](https://unity.com/releases/editor/whats-new/2022.3.23)
-[![Release](https://img.shields.io/github/v/release/ludioo/Unity-Project-Health-Check)](https://github.com/ludioo/Unity-Project-Health-Check/releases)
+[![EditMode Tests](https://github.com/ludioo/Unity-Project-Health-Check/actions/workflows/editmode-tests.yml/badge.svg)](https://github.com/ludioo/Unity-Project-Health-Check/actions/workflows/editmode-tests.yml)
+[![Unity 2022.3 LTS+](https://img.shields.io/badge/Unity-2022.3%20LTS%2B-222c37)](https://unity.com/releases/editor/whats-new/2022.3.23)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A lightweight, read-only Unity Editor tool for finding common project health issues before they
@@ -42,10 +42,8 @@ Check provides one manual scan with clear, actionable paths while leaving projec
 In Unity, open **Window > Package Manager**, choose **Add package from git URL**, and enter:
 
 ```text
-https://github.com/ludioo/Unity-Project-Health-Check.git?path=/Packages/com.ludioo.project-health-check
+https://github.com/ludioo/Unity-Project-Health-Check.git?path=/Packages/com.ludioo.project-health-check#v0.1.2
 ```
-
-For production projects, install a tagged release by appending a version such as `#v0.1.0`.
 
 ## Development
 
@@ -74,5 +72,7 @@ last for the current window only.
 
 The package includes EditMode coverage for all five checks, scene/Build Settings restoration, UI
 assets, default settings, summary counts, filtering, empty states, and safe Ping behavior.
+GitHub Actions runs the EditMode suite on pushes and pull requests targeting `main` and `develop`,
+and retains test artifacts and logs for debugging failed runs.
 
 See the current and planned work in [ROADMAP.md](ROADMAP.md).
