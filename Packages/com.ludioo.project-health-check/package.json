@@ -1,6 +1,6 @@
 {
   "name": "com.ludioo.project-health-check",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "displayName": "Project Health Check",
   "description": "A lightweight Editor tool for finding common Unity project health issues.",
   "unity": "2022.3",

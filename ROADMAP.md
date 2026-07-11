@@ -46,10 +46,17 @@
 - [x] Update the README screenshot and validate the release package
 - [x] Tag and publish `v0.1.1`
 
+## Release v0.1.2 — CI
+
+- [x] Run EditMode tests on pushes and pull requests targeting `main` and `develop`
+- [x] Preserve test artifacts and logs when CI fails
+- [x] Validate CI with Unity 2022.3.23f1
+
 ## Post-v0.1 backlog
 
 - [ ] Persistent Project Settings
 - [ ] Filtering, severity, and suppressions
-- [ ] JSON/batch scan reports and GitHub CI
+- [ ] JSON and batch scan reports
+- [x] GitHub Actions EditMode CI
 - [ ] Safe quick fixes and additional checks
 - [ ] Public custom-rule API when an external consumer needs it
