@@ -2,6 +2,15 @@
 
 All notable changes to this package will be documented in this file.
 
+## [0.1.2] - 2026-07-12
+
+### Added
+
+- Automated Unity EditMode tests with GitHub Actions.
+- CI runs for pushes and pull requests targeting `main` and `develop`.
+- Test artifacts and Unity logs for CI failure diagnosis.
+- CI validation using Unity 2022.3.23f1.
+
 ## [0.1.1] - 2026-07-12
 
 ### Changed

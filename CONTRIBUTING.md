@@ -14,6 +14,9 @@ From PowerShell, EditMode tests can also run headlessly when `UNITY_EDITOR` poin
 & $env:UNITY_EDITOR -batchmode -quit -projectPath $PWD -runTests -testPlatform EditMode -testResults TestResults.xml
 ```
 
+GitHub Actions runs the same EditMode suite for pushes and pull requests targeting `main` and
+`develop`.
+
 Do not commit generated Unity directories such as `Library`, `Temp`, `Logs`, or `UserSettings`.
 
 Keep changes focused and dependency-free. New dependencies require prior discussion.
