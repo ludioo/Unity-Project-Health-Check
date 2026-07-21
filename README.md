@@ -2,27 +2,77 @@
 
 [![EditMode Tests](https://github.com/ludioo/Unity-Project-Health-Check/actions/workflows/editmode-tests.yml/badge.svg)](https://github.com/ludioo/Unity-Project-Health-Check/actions/workflows/editmode-tests.yml)
 [![Unity 2022.3 LTS+](https://img.shields.io/badge/Unity-2022.3%20LTS%2B-222c37)](https://unity.com/releases/editor/whats-new/2022.3.23)
+[![Release](https://img.shields.io/github/v/release/ludioo/Unity-Project-Health-Check?label=release)](https://github.com/ludioo/Unity-Project-Health-Check/releases/tag/v0.1.2)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-A lightweight, read-only Unity Editor tool for finding common project health issues before they
-turn into build failures, repository bloat, or difficult cleanup work.
+**Early MVP · Read-only · Safe to try**
+
+A lightweight Unity Editor tool that scans your project for common health issues and helps you
+locate affected assets — without modifying anything.
 
 ![Project Health Check Editor window](docs/images/project-health-check.png)
 
-## Background
+## What is this?
 
-Unity projects accumulate broken references and oversized assets quietly. These problems are easy
-to miss during daily development and expensive to discover late in production. Project Health
-Check provides one manual scan with clear, actionable paths while leaving project content untouched.
+Project Health Check is an Editor-only package that runs a manual scan of your `Assets/` folder
+and reports problems such as missing scripts, oversized textures, and invalid build scenes. It is
+designed as a simple diagnostic step you can run before a milestone, release, or cleanup pass.
 
-## Goals
+## Why use it?
 
-- Keep scanning fast, explicit, and read-only.
-- Work as an Editor-only UPM package with no third-party dependencies.
-- Report useful project paths without automatically changing assets.
-- Stay compatible with Unity 2022.3 LTS.
+Unity projects accumulate broken references and oversized assets quietly. These issues are easy to
+miss during daily work and expensive to find late in production. This tool gives you one clear
+report with paths you can ping in the Editor — read-only, no surprises.
 
-## Checks
+## Is it safe?
+
+Yes. Version 0.1 is intentionally **read-only**:
+
+- Does not modify scenes, prefabs, import settings, or Build Settings
+- Does not delete or rewrite assets
+- Does not run in the background or hook into builds
+
+The window states this before you scan. If you cancel a scan, your previous results are kept.
+
+## Install
+
+**Requirements:** Unity 2022.3 LTS or newer, and [Git](https://git-scm.com/) installed on your
+machine (required for Package Manager Git URLs).
+
+1. Open your Unity project.
+2. Go to **Window → Package Manager**.
+3. Click **+ → Add package from git URL…**
+4. Paste this URL and confirm:
+
+```text
+https://github.com/ludioo/Unity-Project-Health-Check.git?path=/Packages/com.ludioo.project-health-check#v0.1.2
+```
+
+Unity downloads the package from the tagged release. No other dependencies are required.
+
+<details>
+<summary>Troubleshooting</summary>
+
+- **Git not found** — Install Git and restart Unity.
+- **Package resolution failed** — Confirm you are on Unity 2022.3+ and the URL includes `#v0.1.2`.
+- **Want the latest from main** — Replace `#v0.1.2` with `#main` (may be less stable than a tagged release).
+
+</details>
+
+## Use it
+
+1. Open **Tools → Project Health Check**
+2. Optionally expand **Scan Settings** to adjust thresholds (defaults: 4096 px textures, 50 MiB files)
+3. Click **Scan Project**
+4. Review summary cards and grouped results
+5. Click a row or **Ping** to locate an asset in the Project window
+
+Results can be filtered by check type without running another scan.
+
+**Note:** On large projects, the missing-script check may take longer because it inspects prefabs
+and scenes under `Assets/`. You can cancel a scan at any time.
+
+## What it detects
 
 | Check | Reports |
 | --- | --- |
@@ -32,47 +82,49 @@ Check provides one manual scan with clear, actionable paths while leaving projec
 | Invalid Build Scenes | Empty or missing scene entries in Build Settings |
 | Empty Folders | Leaf folders containing no assets or subfolders |
 
-## Requirements
+Scans cover `Assets/` only. Package dependencies and generated folders are excluded.
 
-- Unity 2022.3 LTS or newer
-- No third-party runtime dependencies
+## Current limitations
 
-## Installation
+This is an early MVP focused on core scanning. Not included yet:
 
-In Unity, open **Window > Package Manager**, choose **Add package from git URL**, and enter:
+- Automatic fixes
+- Persistent settings (thresholds reset when the window closes)
+- Issue suppressions or severity levels
+- JSON or batch reports
+- Background or pre-build scanning
+- Scanning `Packages/` or generated folders
 
-```text
-https://github.com/ludioo/Unity-Project-Health-Check.git?path=/Packages/com.ludioo.project-health-check#v0.1.2
-```
+See [ROADMAP.md](ROADMAP.md) for planned work.
+
+## What's next?
+
+Upcoming priorities include persistent project settings, exportable reports, and safe quick fixes.
+Progress is tracked openly in [ROADMAP.md](ROADMAP.md).
+
+## Feedback and contributing
+
+This project is in early release and **community feedback is welcome**. If you try it:
+
+- [Open an issue](https://github.com/ludioo/Unity-Project-Health-Check/issues) for bugs, feedback, or ideas
+
+To contribute code, see [CONTRIBUTING.md](CONTRIBUTING.md). Pull requests should stay focused
+and dependency-free.
 
 ## Development
 
-Open the repository root as a Unity project. Production package files live in
-`Packages/com.ludioo.project-health-check`; project-only fixtures live in `Assets/Development`.
+To work on the package itself, clone this repository and open its root as a Unity 2022.3 project:
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) before contributing.
+```bash
+git clone https://github.com/ludioo/Unity-Project-Health-Check.git
+```
 
-## Usage
+Production package code lives in `Packages/com.ludioo.project-health-check`. Development fixtures
+live in `Assets/Development`.
 
-Open **Tools > Project Health Check**, adjust the texture or file-size thresholds if needed,
-then select **Scan Project**. Results cover the `Assets` folder only. Use **Select / Ping** to
-locate an affected asset. Version 0.1 reports issues but never modifies assets.
+EditMode tests run locally via the Unity Test Runner or in batchmode — see [CONTRIBUTING.md](CONTRIBUTING.md).
+GitHub Actions runs the same EditMode suite on pushes and pull requests to `main` and `develop`.
 
-Results are grouped by check and can be filtered without running another scan. Threshold changes
-last for the current window only.
+## License
 
-## Safety and limitations
-
-- Scans `Assets/` only; package dependencies and generated folders are excluded.
-- Does not modify scenes, prefabs, import settings, or Build Settings.
-- Scans run manually—there is no background or pre-build hook.
-- Automatic fixes, suppressions, persistent settings, and JSON reports are not available yet.
-
-## Testing
-
-The package includes EditMode coverage for all five checks, scene/Build Settings restoration, UI
-assets, default settings, summary counts, filtering, empty states, and safe Ping behavior.
-GitHub Actions runs the EditMode suite on pushes and pull requests targeting `main` and `develop`,
-and retains test artifacts and logs for debugging failed runs.
-
-See the current and planned work in [ROADMAP.md](ROADMAP.md).
+MIT — see [LICENSE](LICENSE).
