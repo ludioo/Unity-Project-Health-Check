@@ -33,3 +33,21 @@ crashlytics-build.properties
 # Operating-system metadata
 .DS_Store
 Thumbs.db
+
+# Cursor
+.cursor/
+
+# VS Code
+.vscode/
+
+# Unity Test Runner
+TestResults/
+
+# Unity Code Coverage
+Coverage/
+
+# Exported Packages
+*.unitypackage
+
+# Archives
+*.zip
